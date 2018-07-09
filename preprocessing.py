@@ -38,8 +38,11 @@ BAND = input_mat.shape[2]
 CLASSES = [] 
 COUNT = 200 #Number of patches of each class
 OUTPUT_CLASSES = np.max(target_mat)
+print ("Output classes")
 print (OUTPUT_CLASSES)
 
+list_labels = []
+train_idx = []
 
 if opt.data == "Indian_Pines":
 	list_labels = [2,3,5,6,8,10,11,12,14]
@@ -96,6 +99,7 @@ def Patch(height_index,width_index):
 MEAN_ARRAY = np.ndarray(shape=(BAND,),dtype=float)
 new_input_mat = []
 input_mat = np.transpose(input_mat,(2,0,1))
+print("Input_matrix shape")
 print(input_mat.shape)
 for i in range(BAND):
     MEAN_ARRAY[i] = np.mean(input_mat[i,:,:])
@@ -122,6 +126,7 @@ for i in range(HEIGHT):
         if(curr_tar!=0): #Ignore patches with unknown landcover type for the central pixel
             CLASSES[curr_tar-1].append(curr_inp)
             count += 1
+print ("Number of unknown stuff ")
 print (count)
 
 
@@ -197,3 +202,4 @@ scipy.io.savemat("./data/" + opt.data + "_Full_Train_patch_" + str(PATCH_SIZE) +
 print ("Test tabel shape")
 print (FULL_TRAIN_LABELS.shape)
 
+print("End of pre-processing images!")
