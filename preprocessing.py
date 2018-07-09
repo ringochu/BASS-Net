@@ -38,7 +38,7 @@ BAND = input_mat.shape[2]
 CLASSES = [] 
 COUNT = 200 #Number of patches of each class
 OUTPUT_CLASSES = np.max(target_mat)
-print OUTPUT_CLASSES
+print (OUTPUT_CLASSES)
 
 
 if opt.data == "Indian_Pines":
@@ -103,8 +103,9 @@ for i in range(BAND):
         new_input_mat.append(np.pad(input_mat[i,:,:],PATCH_SIZE/2,'constant',constant_values = 0))
     except:
         new_input_mat = input_mat
-    
-print np.array(new_input_mat).shape
+
+print ("Input format shape")
+print (np.array(new_input_mat).shape)
 
 input_mat = np.array(new_input_mat)
 
@@ -121,7 +122,7 @@ for i in range(HEIGHT):
         if(curr_tar!=0): #Ignore patches with unknown landcover type for the central pixel
             CLASSES[curr_tar-1].append(curr_inp)
             count += 1
-print count
+print (count)
 
 
 TRAIN_PATCH,TRAIN_LABELS,TEST_PATCH,TEST_LABELS,VAL_PATCH, VAL_LABELS = [],[],[],[],[],[]
@@ -171,24 +172,28 @@ train = {}
 train["train_patch"] = TRAIN_PATCH
 train["train_labels"] = TRAIN_LABELS
 scipy.io.savemat("./data/" + opt.data + "_Train_patch_" + str(PATCH_SIZE) + ".mat", train)
-print TRAIN_PATCH.shape
+print( "Train patch shape")
+print (TRAIN_PATCH.shape)
 
 
 test = {}
 test["test_patch"] = TEST_PATCH
 test["test_labels"] = TEST_LABELS
 scipy.io.savemat("./data/" + opt.data + "_Test_patch_" + str(PATCH_SIZE) + ".mat", test)
-print TEST_PATCH.shape
+print ("Test patch Shape")
+print (TEST_PATCH.shape)
 
 val = {}
 val["val_patch"] = VAL_PATCH
 val["val_labels"] = VAL_LABELS
 scipy.io.savemat("./data/" + opt.data + "_Val_patch_" + str(PATCH_SIZE) + ".mat", val)
-print VAL_PATCH.shape
+print ("Validation patch shape ")
+print (VAL_PATCH.shape)
 
 full_train = {}
 full_train["train_patch"] = FULL_TRAIN_PATCH
 full_train["train_labels"] = FULL_TRAIN_LABELS
 scipy.io.savemat("./data/" + opt.data + "_Full_Train_patch_" + str(PATCH_SIZE) + ".mat", full_train)
-print FULL_TRAIN_LABELS.shape
+print ("Test tabel shape")
+print (FULL_TRAIN_LABELS.shape)
 
