@@ -13,10 +13,10 @@ This repository contains code to build and test the Configuration 4 architecture
 
 * Dependencies:
 	1. Python 2.7 / 3.6 <br>
-		1.1 numpy <br>
-		1.2 scipy <br>
-		1.3 argparse <br>
-		1.4 wget <br>
+			1.1 numpy <br>
+			1.2 scipy <br>
+			1.3 argparse <br>
+			1.4 wget <br>
 
 
 
