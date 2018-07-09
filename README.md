@@ -12,6 +12,14 @@ Please refer to our [paper](https://arxiv.org/abs/1612.00144) for details. (PDF 
 This repository contains code to build and test the Configuration 4 architecture in the paper. The code has the option to work on one of the three popular [Hyperspectral Image Classification datasets](http://www.ehu.eus/ccwintco/index.php?title=Hyperspectral_Remote_Sensing_Scenes) viz. Indian Pines, Salinas and Pavia University Scene. 
 
 * Dependencies:
+	1. Python 2.7 / 3.6
+		1.1 numpy
+		1.2 scipy
+		1.3 argparse
+		1.4 wget
+
+
+
 	1. Lua 5.2
 	2. Python 2.7
 	3. Torch 7
