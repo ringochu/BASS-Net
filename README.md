@@ -1,5 +1,5 @@
 # BASS Net
-###Band-Adaptive Spectral-Spatial Feature Learning Neural Network for Hyperspectral Image Classification
+#Band-Adaptive Spectral-Spatial Feature Learning Neural Network for Hyperspectral Image Classification
 
 #####Summary:
 Deep learning based landcover classification algorithms have recently been proposed in literature. In hyperspectral images (HSI) they face the challenges of large dimensionality, spatial variability of spectral signatures and scarcity of labeled data. In this work we propose an end-to-end deep learning architecture that extracts band specific spectral-spatial features and performs landcover classification. The architecture has fewer independent connection weights and thus requires lesser number of training data. The method is found to outperform the highest reported accuracies on popular hyperspectral image data sets.
