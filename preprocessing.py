@@ -1,4 +1,3 @@
-import scipy.io
 import numpy as np
 from random import shuffle
 import scipy.ndimage
@@ -21,16 +20,19 @@ elif opt.data == "PaviaU":
 	opt.url1 = "http://www.ehu.eus/ccwintco/uploads/e/ee/PaviaU.mat"
 	opt.url2 = "http://www.ehu.eus/ccwintco/uploads/5/50/PaviaU_gt.mat"
 
+firstLetterLower = lambda s: s[0].lower() + s[1:] if s else ''
 
 ##loading images for input and target image
 try:
-	input_mat = io.loadmat('./data/' + opt.data + '.mat')[opt.data.lower()]
-	target_mat = io.loadmat('./data/' + opt.data + '_gt.mat')[opt.data.lower() + '_gt']
+	input_mat = io.loadmat('./data/' + opt.data + '.mat')[firstLetterLower(opt.data)]
+	target_mat = io.loadmat('./data/' + opt.data + '_gt.mat')[firstLetterLower(opt.data)+ '_gt']
 except:
-	os.system('wget' + ' ./data/' + opt.data + '.mat' + ' ' + opt.url1)
-	os.system('wget' + ' ./data/' + opt.data + '.mat' + ' ' + opt.url2)
-	input_mat = io.loadmat('./data/' + opt.data + '.mat')[opt.data.lower()]
-	target_mat = io.loadmat('./data/' + opt.data + '_gt.mat')[opt.data.lower() + '_gt']	
+	print("insdie except")
+	os.system('wget -P' + ' ' + './data/' + ' ' + opt.url1)
+	os.system('wget -P' + ' ' + './data/' + ' ' + opt.url2)
+	input_mat = io.loadmat('./data/' + opt.data + '.mat')[firstLetterLower(opt.data)]
+	target_mat = io.loadmat('./data/' + opt.data + '_gt.mat')[firstLetterLower(opt.data) + '_gt']
+
 PATCH_SIZE = opt.patch_size
 HEIGHT = input_mat.shape[0]
 WIDTH = input_mat.shape[1]
@@ -126,7 +128,7 @@ for i in range(HEIGHT):
         if(curr_tar!=0): #Ignore patches with unknown landcover type for the central pixel
             CLASSES[curr_tar-1].append(curr_inp)
             count += 1
-print ("Number of unknown stuff ")
+print ("Count")
 print (count)
 
 
