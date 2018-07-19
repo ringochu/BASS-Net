@@ -43,6 +43,3 @@ This repository contains code to build and test the Configuration 4 architecture
 		th bass-net_model.lua --path_dir "./data/" --data Indian_pines --development 1 --optimization "Adam" --learningRate 0.0005 --maxIter 8000 --nbands 10 --patch_size 3 
 		```
 	
-
-
-. /Users/Rings/torch/install/bin/torch-activate
