@@ -160,7 +160,7 @@ model:add(nn.ReLU())
 model:add(nn.TemporalConvolution(15, 5, 5, 1))
 model:add(nn.ReLU())
 
-model:add(nn.Reshape((opt.band_size)*5, 1)) 
+model:add(nn.Reshape((opt.band_size-10)*5, 1)) 
 
 
 parallel_model = nn.Parallel(2, 2)
@@ -184,7 +184,7 @@ net:add(nn.Reshape(opt.nbands, opt.band_size, opt.patch_size*opt.patch_size))
 
 -- Adding in block 2
 net:add(parallel_model)
-net:add(nn.Reshape(opt.nbands*(opt.band_size)*5))
+net:add(nn.Reshape(opt.nbands*(opt.band_size-10)*5))
 
 --nbands: Ip: 10; Salinas: 14; PaviaU: 1
 --band_size:  IP: 22; Salinas: 16; PaviaU:103
